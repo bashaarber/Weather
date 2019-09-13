@@ -7,4 +7,7 @@ target 'Weather' do
 
   # Pods for Weather
 
+  pod 'SVProgressHUD'
+  pod 'SDWebImage'
+
 end

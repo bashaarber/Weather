@@ -53,8 +53,37 @@ import Foundation
 //}
 
 
-struct CurrentWeather{
+struct CurrentWeather: Codable{
     
+    var weather: [weather]
+    var main: main
+    var visibility: Int
+    var wind: wind
+    var clouds: clouds
+    var dt: Int
+    var name: String
+    var cod: Int
     
-    
+}
+
+struct weather: Codable{
+    var id: Int
+    var main: String
+    var description: String
+    var icon: String
+}
+
+struct main: Codable{
+    var temp: Decimal
+    var pressure: Int
+    var humidity: Int
+}
+
+struct wind: Codable{
+    var speed: Decimal
+    var deg: Int
+}
+
+struct clouds: Codable{
+    var all: Int
 }
