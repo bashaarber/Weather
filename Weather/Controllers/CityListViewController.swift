@@ -14,7 +14,7 @@ class CityListViewController: UIViewController, UITableViewDataSource , UITableV
     @IBOutlet weak var tableView: UITableView!
     
     var cityArray: [City] = [City(ID: 786714, name: "Prishtina", state: "XK"),
-                             City(ID: 786712, name: "Prizeren", state: "XK"),
+                             City(ID: 786712, name: "Prizren", state: "XK"),
                              City(ID: 790674, name: "Gjilan", state: "XK"),
                              City(ID: 787157, name: "Peje", state: "XK"),
                              City(ID: 789225, name: "Mitrovice", state: "XK"),
@@ -58,6 +58,16 @@ class CityListViewController: UIViewController, UITableViewDataSource , UITableV
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10.0
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        
+        UIView.animate(
+            withDuration: 0.75,
+            delay: 0.05 * Double(indexPath.section),
+            animations: {
+                cell.alpha = 1
+        })
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return cityArray.count
@@ -68,11 +78,14 @@ class CityListViewController: UIViewController, UITableViewDataSource , UITableV
         cell.clipsToBounds = true
         cell.layer.cornerRadius = 10
         cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
+        cell.lblCity.textColor = UIColor.white
+
         
         let city = cityArray[indexPath.section]
         
         cell.lblCity.text = city.name
-        cell.lblState.text = city.state
+
         
         return cell
     }

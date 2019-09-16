@@ -20,33 +20,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqn-Qa-VnH">
-                        <rect key="frame" x="32" y="31" width="36" height="23.5"/>
-                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82e-cy-DEE">
-                        <rect key="frame" x="276" y="27" width="32" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="32" id="hUW-NI-qlo"/>
-                            <constraint firstAttribute="height" constant="32" id="qca-On-B4M"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
+                        <rect key="frame" x="148" y="26" width="44.5" height="34"/>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="82e-cy-DEE" firstAttribute="centerY" secondItem="Vqn-Qa-VnH" secondAttribute="centerY" id="FyF-t6-VP0"/>
-                    <constraint firstAttribute="trailing" secondItem="82e-cy-DEE" secondAttribute="trailing" constant="32" id="N5X-z0-Dc1"/>
-                    <constraint firstItem="Vqn-Qa-VnH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="Sim-jd-rYR"/>
-                    <constraint firstItem="Vqn-Qa-VnH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yka-Ya-O4A"/>
+                    <constraint firstItem="Vqn-Qa-VnH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="69W-kA-Eln"/>
+                    <constraint firstItem="Vqn-Qa-VnH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="e1G-Lq-7Cs"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="lblCity" destination="Vqn-Qa-VnH" id="sVh-k5-y6g"/>
-                <outlet property="lblState" destination="82e-cy-DEE" id="BYB-Jd-0xD"/>
             </connections>
             <point key="canvasLocation" x="154" y="154"/>
         </tableViewCell>

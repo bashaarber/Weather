@@ -75,13 +75,11 @@ struct weather: Codable{
 
 struct main: Codable{
     var temp: Decimal
-    var pressure: Int
     var humidity: Int
 }
 
 struct wind: Codable{
     var speed: Decimal
-    var deg: Int?
 }
 
 struct clouds: Codable{

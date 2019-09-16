@@ -11,6 +11,8 @@
 		3501D0B4232FA452000BCAEC /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3501D0B2232FA452000BCAEC /* CityCell.xib */; };
 		3501D0B6232FA4D9000BCAEC /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3501D0B5232FA4D9000BCAEC /* CityListViewController.swift */; };
 		3501D0B8232FA9B1000BCAEC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3501D0B7232FA9B1000BCAEC /* City.swift */; };
+		3501D0BA232FD237000BCAEC /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3501D0B9232FD237000BCAEC /* WeatherCollectionViewCell.swift */; };
+		3501D0BE232FD57E000BCAEC /* HourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3501D0BD232FD57E000BCAEC /* HourlyWeather.swift */; };
 		351AD24A232BB1C600FEB304 /* currentWeatherREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AD249232BB1C600FEB304 /* currentWeatherREST.swift */; };
 		351AD24D232BBB3A00FEB304 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AD24C232BBB3A00FEB304 /* Extensions.swift */; };
 		36A2DEE995B532AC68F2C57E /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDC9243425D8EF5391EED0F /* Pods_Weather.framework */; };
@@ -29,6 +31,8 @@
 		3501D0B2232FA452000BCAEC /* CityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
 		3501D0B5232FA4D9000BCAEC /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		3501D0B7232FA9B1000BCAEC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		3501D0B9232FD237000BCAEC /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		3501D0BD232FD57E000BCAEC /* HourlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeather.swift; sourceTree = "<group>"; };
 		351AD249232BB1C600FEB304 /* currentWeatherREST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentWeatherREST.swift; sourceTree = "<group>"; };
 		351AD24C232BBB3A00FEB304 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A000C2E2232AC31500032BBC /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +65,7 @@
 			children = (
 				3501D0B1232FA452000BCAEC /* CityCell.swift */,
 				3501D0B2232FA452000BCAEC /* CityCell.xib */,
+				3501D0B9232FD237000BCAEC /* WeatherCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 			children = (
 				A000C2E4232AC3D500032BBC /* CurrentWeather.swift */,
 				3501D0B7232FA9B1000BCAEC /* City.swift */,
+				3501D0BD232FD57E000BCAEC /* HourlyWeather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,9 +284,11 @@
 			files = (
 				A003D2D423298C5200048147 /* Weather.xcdatamodeld in Sources */,
 				351AD24D232BBB3A00FEB304 /* Extensions.swift in Sources */,
+				3501D0BE232FD57E000BCAEC /* HourlyWeather.swift in Sources */,
 				3501D0B8232FA9B1000BCAEC /* City.swift in Sources */,
 				351AD24A232BB1C600FEB304 /* currentWeatherREST.swift in Sources */,
 				3501D0B6232FA4D9000BCAEC /* CityListViewController.swift in Sources */,
+				3501D0BA232FD237000BCAEC /* WeatherCollectionViewCell.swift in Sources */,
 				A003D2CC23298C5200048147 /* AppDelegate.swift in Sources */,
 				A000C2E5232AC3D500032BBC /* CurrentWeather.swift in Sources */,
 				3501D0B3232FA452000BCAEC /* CityCell.swift in Sources */,
@@ -430,7 +438,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 12FDB1289B784EB1B4BF278A /* Pods-Weather.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TPD86YV292;
 				INFOPLIST_FILE = Weather/Info.plist;
@@ -449,7 +457,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B679AB1D0491A4A6255E8FDA /* Pods-Weather.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TPD86YV292;
 				INFOPLIST_FILE = Weather/Info.plist;
