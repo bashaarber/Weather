@@ -81,7 +81,7 @@ struct main: Codable{
 
 struct wind: Codable{
     var speed: Decimal
-    var deg: Int
+    var deg: Int?
 }
 
 struct clouds: Codable{

@@ -12,23 +12,27 @@ import SVProgressHUD
 
 class CityViewController: UIViewController {
 
-   
+    var cityName: String = ""
+    var idParameter: Int = 0
     
+    @IBOutlet weak var lblCity: UILabel!
     @IBOutlet weak var lblCurrentTemp: UILabel!
     @IBOutlet weak var imgWeatherIcon: UIImageView!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblHumidity: UILabel!
     @IBOutlet weak var lblWind: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       fetchJSON()
+        lblCity.text = cityName
+        createScreenEdgeSwipe()
+        fetchJSON(parameter: idParameter)
     }
     
-    func fetchJSON(){
+    func fetchJSON(parameter: Int){
         SVProgressHUD.show()
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?id=786713&APPID=43dc624a30541bf02f0055aca49e8224&units=metric"
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?id=\(parameter)&APPID=43dc624a30541bf02f0055aca49e8224&units=metric"
         
         let url = URL(string: urlString)!
         URLSession.shared.dataTask(with: url) { (data, _, error) in
@@ -55,5 +59,22 @@ class CityViewController: UIViewController {
             
             }.resume()
         
+    }
+    
+    
+    
+    func createScreenEdgeSwipe(){
+        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
+        edgePan.edges = .left
+        
+        view.addGestureRecognizer(edgePan)
+    }
+    
+    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .recognized {
+            self.dismiss(animated: false) {
+                
+            }
+        }
     }
 }
