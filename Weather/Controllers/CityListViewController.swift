@@ -14,11 +14,12 @@ class CityListViewController: UIViewController, UITableViewDataSource , UITableV
     @IBOutlet weak var tableView: UITableView!
     
     var cityArray: [City] = [City(ID: 786714, name: "Prishtina", state: "XK"),
-                             City(ID: 786712, name: "Prizren", state: "XK"),
-                             City(ID: 790674, name: "Gjilan", state: "XK"),
-                             City(ID: 787157, name: "Peje", state: "XK"),
-                             City(ID: 789225, name: "Mitrovice", state: "XK"),
-                             City(ID: 784759, name: "Ferizaj", state: "XK"),]
+                             City(ID: 2950159, name: "Berlin", state: "DE"),
+                             City(ID: 2657896, name: "Zurich", state: "CH"),
+                             City(ID: 2648110, name: "London", state: "GB"),
+                             City(ID: 6359304, name: "Madrid", state: "ES"),
+                             City(ID: 2968815, name: "Paris", state: "FR"),
+                             City(ID: 756135, name: "Warsaw", state: "PL")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
