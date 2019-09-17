@@ -16,7 +16,8 @@ class CityViewController: UIViewController, UICollectionViewDelegate , UICollect
 
     var cityName: String = ""
     var idParameter: Int = 0
-    var weather: HourlyWeather!
+    var weatherList: HourlyWeather!
+    var blurEffectView: UIView!
     
     @IBOutlet weak var lblCity: UILabel!
     @IBOutlet weak var lblCurrentTemp: UILabel!
@@ -27,6 +28,7 @@ class CityViewController: UIViewController, UICollectionViewDelegate , UICollect
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
+        createCustomBlur()
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -65,7 +67,6 @@ class CityViewController: UIViewController, UICollectionViewDelegate , UICollect
                     self.lblDescription.text = CW.weather[0].description
                     self.lblHumidity.text = String(CW.main.humidity) + " %"
                     self.lblWind.text = CW.wind.speed.formattedString + " mph"
-                    SVProgressHUD.dismiss()
                 }catch let jsonErr{
                     print("failed",jsonErr)
                 }
@@ -89,9 +90,10 @@ class CityViewController: UIViewController, UICollectionViewDelegate , UICollect
                 
                 do{
                     let decoder = JSONDecoder()
-                    self.weather = try decoder.decode(HourlyWeather.self, from: data)
-                    print(self.weather.list[0].dt)
+                    self.weatherList = try decoder.decode(HourlyWeather.self, from: data)
                     self.collectionView.reloadData()
+                    SVProgressHUD.dismiss()
+                    self.blurEffectView.removeFromSuperview()
                 }catch let jsonErr{
                     print("failed",jsonErr)
                 }
@@ -102,20 +104,45 @@ class CityViewController: UIViewController, UICollectionViewDelegate , UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.alpha = 0
+        
+        UIView.animate(
+            withDuration: 0.75,
+            delay: 0.05 * Double(indexPath.row),
+            animations: {
+                cell.alpha = 1
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as! WeatherCollectionViewCell
-        
-
+        cell.backgroundColor = UIColor.clear
+        if weatherList != nil{
+            cell.lblTemp.text = weatherList.list[indexPath.row].main.temp.formattedString + "°C"
+            cell.imgWeather.sd_setImage(with: URL(string: "https://openweathermap.org/img/wn/\(weatherList.list[indexPath.row].weather[0].icon)@2x.png"))
+            let date = NSDate(timeIntervalSince1970: TimeInterval(weatherList.list[indexPath.row].dt))
+            let calendar = Calendar.current
+            let hour = calendar.component(.hour, from: date as Date)
+            let hourStr = String(hour)
+            cell.lblTime.text = hourStr + "h"
+            
+        }
 
 
         
         return cell
     }
     
-    
+    func createCustomBlur(){
+        let blurEffect = UIBlurEffect(style: .regular) // .extraLight or .dark
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.frame
+        view.addSubview(blurEffectView)
+    }
     
     func createScreenEdgeSwipe(){
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
